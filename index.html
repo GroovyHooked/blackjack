@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500&family=PT+Serif&family=Quicksand:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>BlackJack</title>
+</head>
+
+<body>
+  <header>
+    <h1>Black Jack</h1>
+  </header>
+  <div class="counter-container">
+    <div class="counter">
+      <div class="dealer-counter-title">Dealer</div>
+      <div class="dealer-counter-value">0</div>
+    </div>
+    <div class="winner"></div>
+    <div class="counter">
+      <div class="player-counter-title">Player</div>
+      <div class="player-counter-value">0</div>
+    </div>
+  </div>
+  <div class="wallet-container">
+    <div class="wallet">
+      <div class="wallet-title">Wallet: <span class="wallet-value">50</span></div>
+    </div>
+    <!-- <div class="bet">
+      <div class="bet-title">Bet</div>
+      <div class="bet-value">0</div>
+    </div> -->
+    </div>
+    <div class="container">
+      <div class="container-background"></div>
+      <div class="dealer-container">
+        <div class="sprite back dealer dealer-1"></div>
+        <div class="sprite dealer, dealer-2"></div>
+      </div>
+      <div class="player-container">
+        <div class="sprite player player-1"></div>
+        <div class="sprite player player-2"></div>
+      </div>
+    </div>
+    <div class="action-container">
+      <button class="btn btn-1">Draw</button>
+      <button class="btn btn-2">Stop</button>
+      <button class="btn btn-3">Replay</button>
+    </div>
+    <script src="script.js" type="module"></script>
+</body>
+
+</html>
