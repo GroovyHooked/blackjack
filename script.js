@@ -18,6 +18,8 @@ function _updateDealerScore(score) {
 }
 
 function _updateWinner(who) {
+  if(who.includes('Player')) winner.style.color = '#81B29A';
+  if(who.includes('Dealer')) winner.style.color = '#E07A5F';
   winner.innerHTML = who;
 }
 
@@ -32,9 +34,17 @@ function _updateWallet(status) {
 
 function _addRandomCardWithDetails(participant) {
   const entier = _entierAleatoire(1, 13)
+  let value = undefined;
+  if(cards[entier].value === 11) {
+      if(_getRealHandValue(participant) + 11 > 21) {
+        value = 1
+      } else {
+        value = 11
+      }
+  };
   const color = _entierAleatoire(1, 4)
   const index = Object.entries(participant).length;
-  participant[index] = { value: cards[entier].value, width: cards[entier].width, height: symbols[color].height }
+  participant[index] = { value: value ? value : cards[entier].value, width: cards[entier].width, height: symbols[color].height }
 }
 
 function _dealCards(whichPlayer) {
@@ -48,7 +58,15 @@ function _dealCards(whichPlayer) {
 }
 
 function _getHandValue(hand) {
-  if (hand === dealer && isDealerTurn === false) return dealer[1].value;
+  if (hand === dealer && isDealerTurn === false) return dealer[1]?.value;
+  let count = 0;
+  for (const [, value] of Object.entries(hand)) {
+    count += value.value;
+  }
+  return count;
+}
+
+function _getRealHandValue(hand) {
   let count = 0;
   for (const [, value] of Object.entries(hand)) {
     count += value.value;

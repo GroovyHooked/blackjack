@@ -142,9 +142,17 @@ header>h1 {
   margin: 10px 0 10px 0;
   text-align: center;
   font-size: 1.5rem;
+
+}
+.dealer-counter-title, .dealer-counter-value {
+  color: #E07A5F;
+}
+.player-counter-title, .player-counter-value {
   color: #81B29A;
 }
-
+.winner{
+  width: 80px;
+}
 .wallet-container {
   display: flex;
   justify-content: center;
@@ -156,7 +164,7 @@ header>h1 {
 
 .dealer-container {
   position: relative;
-  margin: 4px auto
+  margin: 12px auto;
 }
 
 .player-container {
@@ -193,7 +201,7 @@ header>h1 {
   height: 60px;
   width: 42px;
   background-position: -80px 210px;
-  transform: scale(1.2);
+  transform: scale(1.4);
 }
 
 .back {
