@@ -95,6 +95,15 @@ video {
 
 body {
   background-color: #3D405B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.app {
+  width: 375px;
+  height: 812px;
 }
 
 header {
@@ -230,18 +239,31 @@ header>h1 {
   cursor: not-allowed;
 }
 
-@media screen and (min-width: 600px) {
-  .sprite {
-    transform: scale(1.5);
-  }
-
-  .action-container {
-    top: calc(-80px + -7vw)
-  }
+@media screen and (min-width: 470px) {
+ .player-container{
+  top: 100px
+ }
+ .app {
+  border: 1px solid #fff;
 }
-
+.counter-container{
+  position: relative;
+  top: 30px;
+}
+.wallet-container{
+  position: relative;
+  top: 30px;
+}
+.container{
+  top: 30px;
+}
+.action-container{
+  top: 30px;
+}
+}
+/*
 @media screen and (min-width: 900px) {
   .action-container {
     top: calc(-80px + -20vw)
   }
-}
+} */
