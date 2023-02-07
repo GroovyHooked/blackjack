@@ -16,6 +16,31 @@ import {
   walletValue,
 } from "./utils.js";
 
+const fakeHandForDealer1 = {
+  0: {
+    value: 4,
+    width: "-245px",
+    height: "275px",
+  },
+  1: {
+    value: 10,
+    width: "-300px",
+    height: "275px",
+  },
+};
+const fakeHandForPlayer = {
+  0: {
+    value: 10,
+    width: "-630px",
+    height: "275px",
+  },
+  1: {
+    value: 11,
+    width: "-80px",
+    height: "275px",
+  },
+};
+
 let player = {};
 let dealer = {};
 let isDealerTurn = false;
@@ -60,7 +85,7 @@ function _playeSound() {
   audio.play();
 }
 
-function _addRandomCardWithDetails(participant) {
+function _addRandomCardWithDetails(participant, bool = false) {
   const entier = _entierAleatoire(1, 13);
   let value = undefined;
   if (cards[entier].value === 11) {
@@ -72,16 +97,24 @@ function _addRandomCardWithDetails(participant) {
   }
   const color = _entierAleatoire(1, 4);
   const index = Object.entries(participant).length;
-  participant[index] = {
-    value: value ? value : cards[entier].value,
-    width: cards[entier].width,
-    height: symbols[color].height,
-  };
+  if (participant === player) {
+    player[index] = {
+      value: bool ? fakeHandForPlayer[0].value : fakeHandForPlayer[1].value,
+      width: cards[entier].width,
+      height: symbols[color].height,
+    };
+  } else {
+    participant[index] = {
+      value: value ? value : cards[entier].value,
+      width: cards[entier].width,
+      height: symbols[color].height,
+    };
+  }
 }
 
 function _dealCards(whichPlayer) {
   _addRandomCardWithDetails(whichPlayer);
-  _addRandomCardWithDetails(whichPlayer);
+  _addRandomCardWithDetails(whichPlayer, true);
   if (whichPlayer === player) {
     _updatePlayerScore(_getHandValue(player));
   } else {
