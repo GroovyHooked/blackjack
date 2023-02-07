@@ -161,6 +161,8 @@ header>h1 {
 }
 .winner{
   width: 80px;
+  position: relative;
+  z-index: 1;
 }
 .wallet-container {
   display: flex;
@@ -237,6 +239,20 @@ header>h1 {
   border: 1px solid black;
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+
+.blackjack {
+  animation: 1s linear infinite alternate blackjack;
+}
+
+@keyframes blackjack {
+  from {
+    transform: scale(0.6);
+  }
+  to {
+    transform: scale(1.4);
+  }
 }
 
 @media screen and (min-width: 470px) {

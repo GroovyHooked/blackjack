@@ -142,6 +142,9 @@ function _startGame(dealer, player) {
   if (_isBlackJack(player)) {
     winner.style.width = "130px";
     winner.style.color = "#81B29A";
+    winner.style.top = "250px";
+    winner.style.left = "-5px";
+    winner.className += " blackjack";
     _updateWinner("BLACKJACK");
     _updateWallet("win");
     _enableAndDisableButtons();
@@ -205,6 +208,9 @@ const restartGame = () => {
   dealer = {};
   player = {};
   winner.style.width = "80px";
+  winner.classList.remove("blackjack");
+  winner.style.top = "0px";
+  winner.style.left = "0px";
   _enableAndDisableButtons();
   isDealerTurn = false;
   _startGame(dealer, player);
