@@ -33,6 +33,13 @@ function _updateDealerScore(score) {
   dealer_counter.innerHTML = score;
 }
 
+function _isBlackJack(participant) {
+  const [firstCard, secondCard] = Object.values(participant);
+  const total = firstCard.value + secondCard.value;
+  if (total === 21) return true;
+  return false;
+}
+
 function _updateWinner(who) {
   if (who.includes("Player")) winner.style.color = "#81B29A";
   if (who.includes("Dealer")) winner.style.color = "#E07A5F";
@@ -132,6 +139,13 @@ function _startGame(dealer, player) {
   }
   _dealCards(player);
   _dealCards(dealer);
+  if (_isBlackJack(player)) {
+    winner.style.width = "130px";
+    winner.style.color = "#81B29A";
+    _updateWinner("BLACKJACK");
+    _updateWallet("win");
+    _enableAndDisableButtons();
+  }
   _updateDealerScore(_getHandValue(dealer));
   player1.style.backgroundPosition = player[0].width + " " + player[0].height;
   player2.style.backgroundPosition = player[1].width + " " + player[1].height;
@@ -190,6 +204,7 @@ const dealerTakeOver = (dealer, player) => {
 const restartGame = () => {
   dealer = {};
   player = {};
+  winner.style.width = "80px";
   _enableAndDisableButtons();
   isDealerTurn = false;
   _startGame(dealer, player);
