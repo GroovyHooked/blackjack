@@ -11,6 +11,9 @@ export const dealer_counter = document.querySelector('.dealer-counter-value');
 export const player_counter = document.querySelector('.player-counter-value');
 export const winner = document.querySelector('.winner')
 export const walletValue = document.querySelector('.wallet-value')
+export const betting_input = document.querySelector('#bet')
+export const betting_value = document.querySelector('.bet-value')
+export const app = document.querySelector('.app')
 
 export const symbols = {
   1: {
